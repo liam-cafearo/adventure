@@ -3,7 +3,7 @@ from data import locations
 
 # We define a dictionary with our directions in. Each direction is a set of coordinates which, when added to a
 # position, will move it in that direction. So for instance,
-# if we’re currently at (1, 1), moving east will result in (1+1, 1) = (2, 1).
+# if we are currently at (1, 1), moving east will result in (1+1, 1) = (2, 1).
 # Moving west will result in (1-1, 1) = (0,1).
 directions = {
     'west': (-1, 0),
@@ -37,4 +37,9 @@ while True:
     # We ask the user for a direction, and use the valid_directions dictionary to move us to that position.
     # When the loop begins again, we will be in that new position.
     direction = raw_input('which direction do you want to go?\n')
-    position = valid_directions[direction]
+
+    new_position = valid_directions[direction]
+    if new_position:
+        position = new_position
+    else:
+        print "sorry, that isn't a valid direction"
